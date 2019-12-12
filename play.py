@@ -77,10 +77,13 @@ def play_aidungeon_2():
                   + " If you would like to disable this enter 'nosaving' for any action. This will also turn off the "
                   + "ability to save games.")
 
-    upload_story = True
+    upload_story = False
+    
+    temp = float(input("New temperature: "))
+    top_k = int(input("New top_k: "))
 
     print("\nInitializing AI Dungeon! (This might take a few minutes)\n")
-    generator = GPT2Generator()
+    generator = GPT2Generator(60, temp, top_k, 0.9)
     story_manager = UnconstrainedStoryManager(generator)
     inference_timeout = 30
     def act(action):
