@@ -86,7 +86,7 @@ def play_aidungeon_2():
     def act(action):
         return func_timeout(inference_timeout, story_manager.act, (action,))
     def notify_hanged():
-        console_print(f\"That input caused the model to hang (timeout is {inference_timeout}, use infto ## command to change)\")
+        console_print("That input caused the model to hang (timeout is {inference_timeout}, use infto ## command to change)")
     print("\n")
 
     with open('opening.txt', 'r', encoding='utf-8') as file:
@@ -177,13 +177,13 @@ def play_aidungeon_2():
                     console_print(story_manager.story.story_start)
                 continue
                       
-            elif len(action.split(\" \")) == 2 and action.split(\" \")[0] == 'infto':
+            elif len(action.split(" ")) == 2 and action.split(" ")[0] == 'infto':
 
                 try:
-                    inference_timeout = int(action.split(\" \")[1])
-                    console_print(f\"Set timeout to {inference_timeout}\")
+                    inference_timeout = int(action.split(" ")[1])
+                    console_print("Set timeout to {inference_timeout}")
                 except:
-                    console_print(\"Failed to set timeout. Example usage: infto 30\")
+                    console_print("Failed to set timeout. Example usage: infto 30")
                 continue
             else:
                 if action == "":
